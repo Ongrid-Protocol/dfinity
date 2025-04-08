@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "src/bootstrap_node_backend"
+]
+resolver = "2"
