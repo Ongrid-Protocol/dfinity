@@ -22,6 +22,11 @@
       "packtool": ""
     }
   },
+  "networks": {
+    "local": {
+      "bind": "192.168.100.172:49517"
+    }
+  },
   "output_env_file": ".env",
   "version": 1
 }

@@ -1,3 +1,28 @@
+type Node = record {
+    name : text;
+    node_principal : principal;
+    multiaddress : text;
+    last_heartbeat : nat64
+};
+
+type RegisterResponse = record {
+    success : bool;
+    node_principal : principal
+};
+
+type VerificationRequest = record {
+    message : vec nat8;
+    requesting_principal : principal
+};
+
+type VerificationResponse = record {
+    signature : vec nat8;
+    signer_principal : principal
+};
+
 service : {
-    "greet": (text) -> (text) query;
+    "register_node" : (text, text, principal) -> (RegisterResponse);
+    "heartbeat" : (principal, text, text) -> (bool);
+    "get_nodes" : () -> (vec Node) query;
+    "request_signature" : (VerificationRequest) -> (VerificationResponse)
 }
